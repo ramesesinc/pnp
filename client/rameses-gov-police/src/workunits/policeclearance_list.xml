@@ -1,0 +1,26 @@
+<workunit extends="wtemplates/ExplorerViewController.xml" 
+    serviceName="PoliceClearanceListService" 
+    entityName="policeclearance" 
+    defaultFileType="policeclearance" 
+    autoSelect="true">
+    
+    <invokers>
+        <invoker folderid="/explorer/txn/police" caption="Police Clearance List" role="ENCODER" permission="policeclearance.read" target="window"/>
+        <invoker type="home.action" caption="Police Clearance List" target="window" role="ENCODER" permission="policeclearance.read"/>
+    </invokers>
+    
+    <code>
+    <![CDATA[
+        import com.rameses.rcp.annotations.*;
+        import com.rameses.rcp.common.*;
+        import com.rameses.osiris2.client.*;
+        import com.rameses.osiris2.common.*
+        import com.rameses.osiris2.reports.*;
+        
+        class PoliceClearanceListController extends ExplorerViewController 
+        {
+            def states = ["NEW","RENEW"]; 
+        }         
+    ]]>
+    </code>
+</workunit>

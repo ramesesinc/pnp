@@ -1,0 +1,12 @@
+<workunit>
+    <invokers>
+        <invoker type="warrant:create" caption="Warrant of Arrest" action="init" target="popup"/>
+        <invoker type="warrant:open" caption="Warrant of Arrest" action="open" target="popup"/>
+    </invokers>
+    
+    <code class="com.rameses.gov.police.datamgmt.WarrantInfoController"/>
+        
+    <pages>
+        <page template="com.rameses.gov.police.datamgmt.WarrantInfoPage" />
+    </pages>
+</workunit>

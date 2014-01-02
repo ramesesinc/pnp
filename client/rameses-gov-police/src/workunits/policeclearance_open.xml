@@ -1,0 +1,15 @@
+<workunit>
+    <invokers>
+        <invoker type="policeclearance:open" action="init" caption="Police Clearance" />
+        
+        <invoker type="formActions" caption="Close" action="_close"/> 
+        <invoker type="formActions" caption="Verify" action="verify" visibleWhen="#{entity.state=='FOR_VERIFICATION'}"/> 
+        <invoker type="formActions" caption="Release" action="release" visibleWhen="#{entity.state=='FOR_RELEASE'}"/> 
+    </invokers>
+    
+    <code class="com.rameses.gov.police.policeclearance.ApplicationInfo"/>
+    
+    <pages>
+        <page template="com.rameses.gov.police.policeclearance.ApplicationPage" />
+    </pages>
+</workunit>

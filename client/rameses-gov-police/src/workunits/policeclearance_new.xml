@@ -1,0 +1,42 @@
+<workunit>
+    <invokers>
+        <invoker type="home.action" action="start" caption="New Police Clearance" role="ENCODER" permission="policeclearance.create"/>
+    </invokers>
+    
+    <code class="com.rameses.gov.police.policeclearance.NewApplication"/>
+    
+    <pageflow>
+        <start>
+            <transition to="select-person" action="init"/>
+        </start>
+        <page name="select-person" title="Step 1: Select Person">
+            <transition to="physical" caption="Next" name="next" immediate="false" action="loadPhysical"/>
+        </page>
+        <page name="physical" title="Step 2: Specify Physical Attributes">
+            <transition to="select-person" caption="Back" name="back"/>
+            <transition to="attachment" caption="Next" name="next" immediate="false" action="verifyPhysical"/>
+        </page>
+        <page name="attachment" title="Step 3: Specify Attachments">
+            <transition to="physical" caption="Back" name="back"/>
+            <transition to="confirm" caption="Next" name="next" immediate="false" />
+        </page>
+        <page name="confirm" title="Step 4: Confirm">
+            <transition to="attachment" caption="Back" name="back"/>
+            <transition to="success" caption="Submit" name="next" immediate="false" action="save" 
+            confirm="You are about to submit this page. Continue?"/>
+        </page>
+        <page name="success" title="Police Clearance (Success)">
+            <transition to="end" caption="Close" name="close"/>
+            <transition to="select-person" caption="Create Another" name="create" action="init"/>
+        </page>
+        <end/>
+    </pageflow>
+    
+    <pages>
+        <page name="select-person" template="com.rameses.gov.police.policeclearance.SelectPersonPage" />
+        <page name="physical" template="com.rameses.gov.police.policeclearance.PhysicalInfoPage" />
+        <page name="attachment" template="com.rameses.gov.police.policeclearance.AttachmentPage" />
+        <page name="confirm" template="com.rameses.gov.police.policeclearance.ConfirmPage" />
+        <page name="success" template="com.rameses.gov.police.policeclearance.SuccessPage" />
+    </pages>
+</workunit>

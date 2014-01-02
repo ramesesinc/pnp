@@ -1,0 +1,11 @@
+<workunit>
+    <invokers>
+        <invoker type="person-warrant-info:open" action="init" caption="Verification" target="popup"/>
+    </invokers>
+    
+    <code class="com.rameses.gov.police.policeclearance.VerifyApplication"/>
+    
+    <pages>
+        <page template="com.rameses.gov.police.policeclearance.VerifyApplicationPage" />
+    </pages>
+</workunit>

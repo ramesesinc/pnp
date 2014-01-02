@@ -1,0 +1,6 @@
+<workunit extends="wtemplates/ListController.xml" serviceName="CaseStatusService" entityName="casestatus" rows="20">
+    <!--invokers>
+        <invoker folderid="/explorer/master/police" caption="Case Status List" role="DATAMGMT_AUTHOR" permission="case_status.read" index="0"/>
+        <invoker type="home.action" caption="Case Status List" target="window" role="DATAMGMT_AUTHOR" permission="case_status.read" />
+   </invokers-->
+</workunit>

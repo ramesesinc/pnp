@@ -1,0 +1,16 @@
+<workunit>
+    <invokers>
+        <invoker type="policeclearance-info:formActions" 
+                caption="Print" action="init" 
+                icon="images/toolbars/printer.png" 
+                visibleWhen="#{entity.state=='RELEASED'}"/>
+                
+        <invoker type="formActions" caption="Back" action="back"/>         
+    </invokers>
+    
+    <code class="com.rameses.gov.police.policeclearance.ApplicationReport"/>
+    
+    <pages>
+        <page template="com.rameses.osiris2.common.ui.ReportPreviewPage"/>
+    </pages>
+</workunit>

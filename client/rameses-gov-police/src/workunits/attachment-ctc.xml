@@ -1,0 +1,11 @@
+<workunit>
+    <invokers>
+        <invoker type="ctcattachment:create" action="create" caption="Attach CTC" target="popup"/>
+    </invokers>
+    
+    <code class="com.rameses.gov.police.policeclearance.CTCAttachmentController"/>
+    
+    <pages>
+        <page template="com.rameses.gov.police.policeclearance.CTCAttachmentPage" />
+    </pages>
+</workunit>

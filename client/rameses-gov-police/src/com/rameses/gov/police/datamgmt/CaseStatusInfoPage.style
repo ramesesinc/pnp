@@ -1,0 +1,12 @@
+"entity.*" [mode == 'create'] {
+    enabled:true;
+}
+"entity.*" [mode != 'create'] {
+    enabled:false;
+}
+"entity.*" [mode == 'edit'] {
+    enabled:true;
+}
+"entity.code" [mode == 'edit'] {
+    enabled:false;
+}

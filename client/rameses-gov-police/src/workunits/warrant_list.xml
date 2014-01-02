@@ -1,0 +1,6 @@
+<workunit extends="wtemplates/ListController.xml" serviceName="WarrantService" entityName="warrant">
+    <invokers>
+        <invoker folderid="/explorer/master/police" caption="Warrant List" role="ENCODER" permission="warrant.read"/>
+        <invoker type="home.action" caption="Warrant List" target="window" role="ENCODER" permission="warrant.read"/>
+    </invokers>
+</workunit>

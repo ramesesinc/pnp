@@ -1,0 +1,3 @@
+"entity.*" [mode == 'read'] {
+    disabledTextColor: #000;
+}

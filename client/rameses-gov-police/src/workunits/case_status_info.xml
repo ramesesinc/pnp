@@ -1,0 +1,12 @@
+<workunit>
+    <!-- invokers>
+        <invoker type="casestatus:create" caption="Case Status" action="init" target="popup"/>
+        <invoker type="casestatus:open" caption="Case Status" action="open" target="popup"/>
+    </invokers -->
+    
+    <code class="com.rameses.gov.police.datamgmt.CaseStatusInfoController"/>
+    
+    <pages>
+        <page template="com.rameses.gov.police.datamgmt.CaseStatusInfoPage" />
+    </pages>
+</workunit>

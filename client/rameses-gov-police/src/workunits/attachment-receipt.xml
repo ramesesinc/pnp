@@ -1,0 +1,11 @@
+<workunit>
+    <invokers>
+        <invoker type="orattachment:create" action="create" caption="Attach Receipt" target="popup"/>
+    </invokers>
+    
+    <code class="com.rameses.gov.police.policeclearance.ReceiptAttachmentController"/>
+    
+    <pages>
+        <page template="com.rameses.gov.police.policeclearance.ReceiptAttachmentPage" />
+    </pages>
+</workunit>
