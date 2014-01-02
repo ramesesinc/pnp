@@ -1,0 +1,63 @@
+import com.rameses.annotations.*;
+import com.rameses.common.*;
+import com.rameses.services.extended.*;
+
+class PoliceClearanceService extends ActiveCrudService {
+
+	@ActiveDB(value='policeclearance', em='police')
+	def em
+
+	@Service("DateService")
+	def dtSvc;
+
+	@Service("EntityService")
+	def entitySvc;
+
+	void beforeCreate( entity ) {
+		entity.dtissued = dtSvc.serverDate;
+	}
+
+	@ProxyMethod
+	public def submitPoliceClearance( entity ) {
+		entity.state = 'PENDING';
+		em.updateState( [objid:entity.objid, state:entity.state] );
+		return entity;
+	}
+
+	@ProxyMethod
+	public def releasePoliceClearance( entity ) {
+		def params = [
+			lastname : entity.lastname,
+			firstname: entity.firstname,
+			middlename: entity.middlename
+		]
+
+		def warrants = em.getWarrantByRespondent( params );
+		if( warrants ) {
+			entity.state = 'FOR_VERIFICATION';
+			entity.warrants = warrants;
+		}
+		else
+			entity.state = 'ISSUED';
+
+		em.updateState( [objid:entity.objid, state:entity.state] );
+		return entity;
+	}
+ 
+	@ProxyMethod
+	public def getReportInformation( entity ) {
+		def finding;
+		def respondentcrimes = em.getRespondentCrimes( [respondentid:entity.personalinfoid] );
+		if( respondentcrimes ) {
+			finding = 'Criminal Record(s): ';
+			respondentcrimes?.each {
+				finding = finding + it.title + " ( " + it.participation + ' ), ';
+			}
+		} else
+			finding = 'There are no criminal record(s).';
+
+		entity.finding = finding;
+		return entity;
+
+	}
+}
