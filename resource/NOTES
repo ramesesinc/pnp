@@ -1,0 +1,6 @@
+NOTES:
+1. create master file for case status list
+2. initial case status list from (cris.ref_pnpstatus)
+3. civil status is required
+4. add civil status to individual entity
+5. added case status on verification page
