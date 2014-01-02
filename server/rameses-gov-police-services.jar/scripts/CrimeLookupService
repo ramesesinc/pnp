@@ -1,0 +1,19 @@
+import com.rameses.annotations.*;
+import com.rameses.services.extended.*;
+
+class CrimeLookupService extends ActiveListService
+{
+	@ActiveDB(value='crime', em='police')
+	def em
+	
+	String pagingKeys = "crime.objid";
+	String listMethod = "getLookup";
+	
+	@ProxyMethod
+	public def getColumns( def p ) {
+		return [
+			[name:'code', caption:'Code'],
+			[name:'title', caption:'Title']
+		]	
+	}
+}

@@ -1,0 +1,118 @@
+import com.rameses.annotations.*;
+import com.rameses.common.*;
+import com.rameses.services.extended.*;
+import java.rmi.server.UID;
+
+class PoliceClearanceService extends ActiveCrudService 
+{
+	@ActiveDB(value='policeclearance', em='police')
+	def em
+
+	@Service("DateService")
+	def dtSvc;
+
+	@Service("EntityService")
+	def entitySvc;
+
+    @Service("EntityPhysicalService")
+    def physicalSvc;
+
+    @Env 
+    def env;
+
+    public void afterOpen(entity) {
+		entity.or = em.findAttachment([parentid: entity.objid, reftype:'RECEIPT']);
+		entity.ctc = em.findAttachment([parentid: entity.objid, reftype:'CTC']);
+		def p = physicalSvc.open([objid: entity.person.objid]); 
+        if (p) entity.person.putAll(p);		
+    }
+
+	@ProxyMethod
+	public def submitPoliceClearance( entity ) {
+		entity.dtfiled = dtSvc.serverDate;
+		entity.createdby = env.USER;
+		entity.state = 'FOR_VERIFICATION';
+		def photo = entity.person.photo;
+		entity.photo = photo;
+
+		def fingerprint = entity.person.fingerprint;
+		entity.fingerprint = fingerprint;
+
+		create(entity);
+		if (entity.or) {
+			entity.or.parentid = entity.objid; 
+			em.create(entity.or, 'attachment'); 
+		}
+		if (entity.ctc) { 
+			entity.ctc.parentid = entity.objid; 
+			em.create(entity.ctc, 'attachment'); 
+		} 
+		physicalSvc.save(entity.person);
+		return entity;
+	}
+
+	@ProxyMethod
+	public def getWarrants( entity ) {
+		def lastname = entity.lastname+'%';
+		def firstname = entity.firstname+'%';
+		return em.getWarrantByName([lastname:lastname, firstname:firstname]);
+	}
+
+	@ProxyMethod
+	public def submitForRelease( entity ) {
+		def data = em.read([objid: entity.objid]);
+		if (!data) throw new Exception('transaction does not exist');
+
+		entity.state = 'FOR_RELEASE';
+		em.submitForRelease(entity);
+		//em.updateState([objid: entity.objid, state:entity.state]);
+		return entity; 
+	} 
+
+	@ProxyMethod
+	public def release( entity ) {
+		def data = em.read([objid: entity.objid]);
+		if (!data) throw new Exception('transaction does not exist');
+
+		entity.state = 'RELEASED';
+		em.updateState([objid: entity.objid, state:entity.state]);
+		return entity; 
+	} 	
+
+	@ProxyMethod
+	public def releasePoliceClearance( entity ) {
+		def params = [
+			lastname : entity.lastname,
+			firstname: entity.firstname,
+			middlename: entity.middlename
+		]
+
+		def warrants = em.getWarrantByRespondent( params );
+		if( warrants ) {
+			entity.state = 'FOR_VERIFICATION';
+			entity.warrants = warrants;
+		}
+		else
+			entity.state = 'ISSUED';
+
+		em.updateState( [objid:entity.objid, state:entity.state] );
+		return entity;
+	}
+ 
+	@ProxyMethod
+	public def getReportInformation( entity ) {
+		def finding;
+		def respondentcrimes = em.getRespondentCrimes( [respondentid:entity.personalinfoid] );
+		if( respondentcrimes ) {
+			finding = 'Criminal Record(s): ';
+			respondentcrimes?.each {
+				finding = finding + it.title + " ( " + it.participation + ' ), ';
+			}
+		} else
+			finding = 'There are no criminal record(s).';
+
+		entity.finding = finding;
+		return entity;
+
+	}
+}

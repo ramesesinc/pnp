@@ -1,0 +1,43 @@
+<schema>
+	<element name="policeclearance" tablename="policeclearance">
+		<field name="objid" primary="true" />
+		<field name="state"/>
+		<field name="dtfiled"/>
+		<field name="createdby"/>
+		<field name="dtverified"/>
+		<field name="verifiedby"/>		
+		<field name="docno" required="true" />
+		<field name="purpose" required="true" />
+		<field name="validfor" required="true" />
+		<field name="qualifier" /> 
+		<field name="finding"/>
+		<field name="person_objid" required="true" />
+		<field name="person_lastname" required="true" />
+		<field name="person_firstname" required="true" />
+		<field name="person_middlename"/>
+		<field name="person_address" required="true" />
+		<field name="person_gender" required="true" />
+		<field name="person_civilstatus" />
+		<field name="person_citizenship" required="true" />
+		<field name="person_birthdate" required="true" />
+		<field name="person_birthplace" required="true" />
+		<field name="person_religion"/>
+		<field name="person_height"/>
+		<field name="person_weight"/>
+		<field name="person_eyecolor" />
+		<field name="person_haircolor" />
+		<field name="person_profession" />
+		<field name="photo_objid" required="true" />
+		<field name="fingerprint_objid"/>
+	</element>
+
+	<element name="attachment" tablename="policeclearance_attachment">
+		<field name="objid" primary="true" />
+		<field name="parentid" required="true"/>
+		<field name="reftype" required="true"/>
+		<field name="refno" required="true"/>
+		<field name="dtissued" required="true"/>
+		<field name="placeissued"/>
+		<field name="amount"/>
+	</element>	
+</schema>

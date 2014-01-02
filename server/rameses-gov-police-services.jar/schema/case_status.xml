@@ -1,0 +1,10 @@
+<schema>
+	<element name="case_status" tablename="case_status">
+		<field name="objid" primary="true" />
+		<field name="state"/>
+		<field name="dtfiled"/>
+		<field name="createdby"/>
+		<field name="code" required="true" />
+		<field name="description" required="true" />
+	</element>
+</schema>

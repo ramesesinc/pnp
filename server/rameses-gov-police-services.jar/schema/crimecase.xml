@@ -1,0 +1,12 @@
+<schema>
+	<element name="crimecase" tablename="crimecase">
+		<field name="objid" primary="true" />
+		<field name="state" required="true" />
+		<field name="caseno" required="true" />
+		<field name="title" required="true" />
+		<field name="casedate" required="true" />
+		<field name="address" required="true" />
+		<field name="longitude" />
+		<field name="latitude" />
+	</element>
+</schema>
