@@ -13,8 +13,8 @@ class PoliceClearanceService extends ActiveCrudListService
 	@ProxyMethod
 	public def getNodes( params ) {
 		return [
-			[name:"for_verification", caption:"For Verification", folder:false, allowSearch:true, domain:'POLICE', role:'VERIFIER'],
-			[name:"for_release", caption:"For Release", folder:false, allowSearch:true, domain:'POLICE', role:'APPROVER'],
+			[name:"for_verification", caption:"For Verification", folder:false, allowSearch:true],
+			[name:"for_release", caption:"For Release", folder:false, allowSearch:true],
 			[name:"released", caption:"Archive", allowSearch:true, folder:false, allowSearch:true]
 		];	
 	}
