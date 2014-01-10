@@ -1,0 +1,15 @@
+import com.rameses.annotations.*;
+import com.rameses.common.*;
+
+class PoliceClearanceReportService
+{
+	@ActiveDB(value='policeclearance', em='police')
+	def em;
+	
+	@ProxyMethod
+	public class getPoliceClearanceListReport( params ) {
+		def list = em.getPoliceClearanceList( params );
+		if( ! list ) throw new Exception('There are no record(s) found.');
+		return list;
+	}
+}

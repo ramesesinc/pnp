@@ -1,0 +1,6 @@
+<workunit extends="workunits/SignatoryTemplate.xml">
+    <invokers>
+        <invoker type="signatorytemplate" action="init" caption="Transaction Verifier" target="window" 
+            docType="VERIFIER" role="DATAMGMT_AUTHOR"/>
+    </invokers>
+</workunit>

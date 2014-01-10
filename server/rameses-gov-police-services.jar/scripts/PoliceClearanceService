@@ -25,7 +25,23 @@ class PoliceClearanceService extends ActiveCrudService
 		entity.ctc = em.findAttachment([parentid: entity.objid, reftype:'CTC']);
 		def p = physicalSvc.open([objid: entity.person.objid]); 
         if (p) entity.person.putAll(p);		
+		getVerifiedByInfo( entity );
+		getCertifiedByInfo( entity );
     }
+	
+	def getVerifiedByInfo( entity ) {
+		def verifier = em.getSignatory( [personnelid: entity.verifiedby, doctype: 'VERIFIER'] );
+		entity.verifiedbyname = verifier.name;
+		entity.verifiedbytitle = verifier.title;
+		entity.verifiedbydepartment = verifier.department;
+	}
+	
+	def getCertifiedByInfo( entity ) {
+		def approver = em.getSignatory( [personnelid: entity.certifiedby, doctype: 'APPROVER'] );
+		entity.certifiedbyname = approver.name;
+		entity.certifiedbytitle = approver.title;
+		entity.certifiedbydepartment = approver.department;
+	}
 
 	@ProxyMethod
 	public def submitPoliceClearance( entity ) {
@@ -64,8 +80,11 @@ class PoliceClearanceService extends ActiveCrudService
 		if (!data) throw new Exception('transaction does not exist');
 
 		entity.state = 'FOR_RELEASE';
+		entity.dtverified = dtSvc.serverDate;
+		entity.verifiedby = env.USERID;
 		em.submitForRelease(entity);
 		//em.updateState([objid: entity.objid, state:entity.state]);
+		getVerifiedByInfo( entity );
 		return entity; 
 	} 
 
@@ -75,7 +94,14 @@ class PoliceClearanceService extends ActiveCrudService
 		if (!data) throw new Exception('transaction does not exist');
 
 		entity.state = 'RELEASED';
-		em.updateState([objid: entity.objid, state:entity.state]);
+		entity.dtcertified = dtSvc.serverDate;
+		entity.certifiedby = env.USERID;
+		em.releasePoliceClearance(entity);
+		getCertifiedByInfo( entity );
+		println '======================='
+		println entity.certifiedbyname
+		println entity.certifiedbytitle
+		println entity.certifiedbydepartment
 		return entity; 
 	} 	
 
@@ -113,6 +139,5 @@ class PoliceClearanceService extends ActiveCrudService
 
 		entity.finding = finding;
 		return entity;
-
 	}
 }
