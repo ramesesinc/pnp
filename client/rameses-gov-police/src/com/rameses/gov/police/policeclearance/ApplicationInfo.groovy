@@ -39,7 +39,12 @@ class ApplicationInfoController
             saveHandler: {o-> 
                     
                 def data = service.submitForRelease(entity); 
-                if (data) entity.state = data.state; 
+                if (data) {
+                    entity.state = data.state;
+                    entity.verifiedbyname = data.verifiedbyname;
+                    entity.verifiedbytitle = data.verifiedbytitle;
+                    entity.verifiedbydepartment = data.verifiedbydepartment;
+                } 
                 binding.refresh(); 
             }
         ]); 
@@ -49,7 +54,12 @@ class ApplicationInfoController
         if (!MsgBox.confirm('You are about to release this application. Continue?')) return;
         
         def data = service.release(entity); 
-        if (data) entity.state = data.state;         
+        if (data) {
+            entity.state = data.state;
+            entity.certifiedbyname = data.certifiedbyname;
+            entity.certifiedbytitle = data.certifiedbytitle;
+            entity.certifiedbydepartment = data.certifiedbydepartment;
+        }         
         
         binding.refresh();
     }     

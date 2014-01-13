@@ -1,6 +1,6 @@
 <workunit>
     <invokers>
-        <invoker folderid="/explorer/report/police" caption="Police Clearance Listing" />
+        <!-- <invoker folderid="/explorer/report/police" caption="Police Clearance Listing" /> -->
         
         <invoker type="formActions" caption="Close" action="_close"/> 
         <invoker type="formActions" caption="Preview" action="preview"/> 

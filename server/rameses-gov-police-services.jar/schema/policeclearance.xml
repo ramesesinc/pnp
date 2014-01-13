@@ -29,6 +29,9 @@
 		<field name="person_profession" />
 		<field name="photo_objid" required="true" />
 		<field name="fingerprint_objid"/>
+		<field name="dtcertified"/>
+		<field name="certifiedby"/>
+		<field name="certifiedremarks"/>
 	</element>
 
 	<element name="attachment" tablename="policeclearance_attachment">

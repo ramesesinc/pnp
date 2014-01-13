@@ -26,21 +26,25 @@ class PoliceClearanceService extends ActiveCrudService
 		def p = physicalSvc.open([objid: entity.person.objid]); 
         if (p) entity.person.putAll(p);		
 		getVerifiedByInfo( entity );
-		getCertifiedByInfo( entity );
+		getCertifiedByInfo( entity );		
     }
 	
-	def getVerifiedByInfo( entity ) {
+	def getVerifiedByInfo( entity ) {	
 		def verifier = em.getSignatory( [personnelid: entity.verifiedby, doctype: 'VERIFIER'] );
-		entity.verifiedbyname = verifier.name;
-		entity.verifiedbytitle = verifier.title;
-		entity.verifiedbydepartment = verifier.department;
+		if( verifier ) {
+			entity.verifiedbyname = verifier[0].name;
+			entity.verifiedbytitle = verifier[0].title;
+			entity.verifiedbydepartment = verifier[0].department;
+		}
 	}
 	
 	def getCertifiedByInfo( entity ) {
 		def approver = em.getSignatory( [personnelid: entity.certifiedby, doctype: 'APPROVER'] );
-		entity.certifiedbyname = approver.name;
-		entity.certifiedbytitle = approver.title;
-		entity.certifiedbydepartment = approver.department;
+		if( approver ) {
+			entity.certifiedbyname = approver[0].name;
+			entity.certifiedbytitle = approver[0].title;
+			entity.certifiedbydepartment = approver[0].department;
+		}
 	}
 
 	@ProxyMethod
@@ -98,10 +102,6 @@ class PoliceClearanceService extends ActiveCrudService
 		entity.certifiedby = env.USERID;
 		em.releasePoliceClearance(entity);
 		getCertifiedByInfo( entity );
-		println '======================='
-		println entity.certifiedbyname
-		println entity.certifiedbytitle
-		println entity.certifiedbydepartment
 		return entity; 
 	} 	
 
