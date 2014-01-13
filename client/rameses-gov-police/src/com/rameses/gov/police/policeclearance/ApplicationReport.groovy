@@ -14,7 +14,7 @@ class ApplicationReport extends ReportModel
 
     void init() {
         buildData(); 
-        preview();
+        print();
     }
     
     void buildData() {
@@ -40,8 +40,9 @@ class ApplicationReport extends ReportModel
         return '_close';
     }
     
-    void preview() {
+    void print() {
         viewReport();
+        ReportUtil.print( this.report, true );
     }
 
     public Map getParameters() {
