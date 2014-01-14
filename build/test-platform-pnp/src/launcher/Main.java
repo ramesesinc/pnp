@@ -24,13 +24,15 @@ public class Main
         profile.put("CLIENTTYPE", "desktop");
         profile.put("USERID", "sa");
         profile.put("USER", "sa");
-        profile.put("ORGID", "6000");
+        profile.put("ORGID", "CEB");
         profile.put("ORGNAME", "CEBU CITY");
         
         Map roles = new HashMap();
         roles.put("ADMIN.SYSADMIN", null);
-        roles.put("POLICE.DATAMGMT_AUTHOR", null);
+        //roles.put("POLICE.DATAMGMT_AUTHOR", null);
         roles.put("POLICE.ENCODER", null);
+        roles.put("POLICE.VERIFIER", null);
+        roles.put("POLICE.APPROVER", null);
         OsirisTestPlatform.runTest(env, roles, profile); 
     }    
 }
