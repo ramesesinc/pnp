@@ -211,6 +211,7 @@ public class AttachmentPage extends javax.swing.JPanel
         xTextField8.setCaptionWidth(120);
         xTextField8.setName("entity.or.refno");
         xTextField8.setPreferredSize(new java.awt.Dimension(200, 20));
+        xTextField8.setRequired(true);
         xFormPanel1.add(xTextField8);
 
         xButton1.setCaption("");
@@ -229,6 +230,7 @@ public class AttachmentPage extends javax.swing.JPanel
         xTextField9.setCaptionWidth(120);
         xTextField9.setName("entity.ctc.refno");
         xTextField9.setPreferredSize(new java.awt.Dimension(200, 20));
+        xTextField9.setRequired(true);
         xFormPanel2.add(xTextField9);
 
         xButton3.setCaption("");

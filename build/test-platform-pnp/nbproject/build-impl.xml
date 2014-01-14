@@ -267,7 +267,6 @@ is divided into following sections:
     ===================
     -->
     <target name="deps-jar" depends="init" unless="no.deps">
-        <ant target="jar" inheritall="false" antfile="${project.dev-controls}/build.xml"/>
         <ant target="jar" inheritall="false" antfile="${project.rameses-gov-police}/build.xml"/>
         <ant target="jar" inheritall="false" antfile="${project.rameses-gov-police-report}/build.xml"/>
         <ant target="jar" inheritall="false" antfile="${project.rameses-gov-signatory-template}/build.xml"/>
@@ -568,7 +567,6 @@ is divided into following sections:
     ===============
     -->
     <target name="deps-clean" depends="init" unless="no.deps">
-        <ant target="clean" inheritall="false" antfile="${project.dev-controls}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.rameses-gov-police}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.rameses-gov-police-report}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.rameses-gov-signatory-template}/build.xml"/>
