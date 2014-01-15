@@ -12,25 +12,27 @@
     </env>    
     <modules>
 		<!--  osiris3 core libraries -->
-		<module file="core/osiris2-client-themes.jar" />
-		<module file="core/osiris2-client-ui.jar" />
-		<module file="core/osiris2-framework.jar" />
-		<module file="core/osiris2-report.jar" />
-		<module file="core/rameses-client-ui.jar" />
-		<module file="core/rameses-client-ui-bio.jar" />
-		<module file="core/rameses-common2.jar" />
-		<module file="core/rameses-custom-impl.jar" />
+		<module file="core/osiris2-client-themes.jar" version="1.02"/>
+		<module file="core/osiris2-client-ui.jar" version="1.02"/>
+		<module file="core/osiris2-framework.jar" version="1.02"/>
+		<module file="core/osiris2-report.jar" version="1.02"/>
+		<module file="core/rameses-client-ui.jar" version="1.02"/>
+		<module file="core/rameses-client-ui-bio.jar" version="1.02"/>
+		<module file="core/rameses-common2.jar" version="1.02"/>
+		<module file="core/rameses-custom-impl.jar" version="1.02"/>
 
 		<!-- client shared modules -->
-		<module file="shared/client-system.jar" />
-		<module file="shared/client-ui-extended.jar" />
-		<module file="shared/rameses-client-menu.jar" />
-		<module file="shared/rameses-client-report.jar" />
-		<module file="shared/rameses-enterprise-admin.jar" />
-		<module file="shared/rameses-enterprise-entity.jar"  />
+		<module file="shared/client-system.jar" version="1.02"/>
+		<module file="shared/client-ui-extended.jar" version="1.02"/>
+		<module file="shared/rameses-client-menu.jar" version="1.02"/>
+		<module file="shared/rameses-client-report.jar" version="1.02"/>
+		<module file="shared/rameses-enterprise-admin.jar" version="1.02"/>
+		<module file="shared/rameses-enterprise-entity.jar" version="1.02"/>
 
 		<!-- plugin modules --> 
-		<module file="rameses-gov-police.jar" />
-		<module file="rameses-pnp-main.jar" />
+		<module file="rameses-pnp-main.jar" version="1.02"/> 
+		<module file="rameses-gov-police.jar" version="1.02"/>  
+		<module file="rameses-gov-police-report.jar" version="1.02"/> 
+		<module file="rameses-gov-signatory-template.jar" version="1.02"/> 
     </modules>
 </app>
