@@ -1,6 +1,6 @@
 <workunit>
     <invokers>
-        <invoker type="signatory:create" action="init" caption="New Signatory" target="popup" />
+        <invoker type="signatory:create" action="init" caption="New Signatory" target="popup" role="DATAMGMT_AUTHOR"/>
         
         <invoker type="formActions" action="_close" caption="Close" mnemonic="c" shortcut="Ctrl C" immediate="true" icon="images/cancel.png" />
         <invoker type="formActions" action="save" caption="Save" mnemonic="s" shortcut="Ctrl S" icon="images/save.png" />
