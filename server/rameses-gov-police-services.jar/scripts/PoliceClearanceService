@@ -85,10 +85,9 @@ class PoliceClearanceService extends ActiveCrudService
 
 		entity.state = 'FOR_RELEASE';
 		entity.dtverified = dtSvc.serverDate;
-		entity.verifiedby = env.USERID;
+		entity.verifieduserid = env.USERID;
 		em.submitForRelease(entity);
 		//em.updateState([objid: entity.objid, state:entity.state]);
-		getVerifiedByInfo( entity );
 		return entity; 
 	} 
 
@@ -99,9 +98,8 @@ class PoliceClearanceService extends ActiveCrudService
 
 		entity.state = 'RELEASED';
 		entity.dtcertified = dtSvc.serverDate;
-		entity.certifiedby = env.USERID;
+		entity.certifieduserid = env.USERID;
 		em.releasePoliceClearance(entity);
-		getCertifiedByInfo( entity );
 		return entity; 
 	} 	
 
@@ -139,5 +137,10 @@ class PoliceClearanceService extends ActiveCrudService
 
 		entity.finding = finding;
 		return entity;
+	}
+
+	@ProxyMethod
+	public def getSignatoryList( params ) {
+		return em.getSignatories( params );
 	}
 }

@@ -33,10 +33,12 @@ SELECT * FROM policeclearance_attachment WHERE parentid=$P{parentid} and reftype
 SELECT * FROM warrant WHERE lastname LIKE $P{lastname} AND firstname LIKE $P{firstname} 
 
 [submitForRelease]
-UPDATE policeclearance set state=$P{state}, dtverified=$P{dtverified}, verifiedby=$P{verifiedby}, finding=$P{finding} where objid=$P{objid}
+UPDATE policeclearance set state=$P{state}, dtverified=$P{dtverified}, verifiedby=$P{verifiedby}, 
+	verifieduserid=$P{verifieduserid}, finding=$P{finding} where objid=$P{objid}
 
 [releasePoliceClearance]
-UPDATE policeclearance set state=$P{state}, dtcertified=$P{dtcertified}, certifiedby=$P{certifiedby} where objid=$P{objid}
+UPDATE policeclearance set state=$P{state}, dtcertified=$P{dtcertified}, certifiedby=$P{certifiedby}, 
+	certifieduserid=$P{certifieduserid}, certifiedremarks=$P{certifiedremarks}  where objid=$P{objid}
 
 [getPoliceClearanceList]
 SELECT * FROM policeclearance
@@ -44,4 +46,7 @@ WHERE state = 'RELEASED'
 	AND dtfiled BETWEEN $P{dtfrom} AND $P{dtto}
 	
 [getSignatory]
-SELECT  * FROM signatory WHERE personnelid = $P{personnelid} AND doctype = $P{doctype}
+SELECT * FROM signatory WHERE personnelid = $P{personnelid} AND doctype = $P{doctype}
+
+[getSignatories]
+SELECT * FROM signatory WHERE doctype = $P{doctype}

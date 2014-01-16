@@ -1,0 +1,11 @@
+<workunit>
+    <invokers>
+        <invoker type="policeclearance:release" action="init" caption="Release Police Clearance" target="popup"/>
+    </invokers>
+    
+    <code class="com.rameses.gov.police.policeclearance.ReleaseApplication"/>
+    
+    <pages>
+        <page template="com.rameses.gov.police.policeclearance.ReleaseApplicationPage" />
+    </pages>
+</workunit>

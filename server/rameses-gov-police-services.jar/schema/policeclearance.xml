@@ -5,6 +5,7 @@
 		<field name="dtfiled"/>
 		<field name="createdby"/>
 		<field name="dtverified"/>
+		<field name="verifieduserid"/>
 		<field name="verifiedby"/>		
 		<field name="docno" required="true" />
 		<field name="purpose" required="true" />
@@ -30,6 +31,7 @@
 		<field name="photo_objid" required="true" />
 		<field name="fingerprint_objid"/>
 		<field name="dtcertified"/>
+		<field name="certifieduserid"/>
 		<field name="certifiedby"/>
 		<field name="certifiedremarks"/>
 	</element>
