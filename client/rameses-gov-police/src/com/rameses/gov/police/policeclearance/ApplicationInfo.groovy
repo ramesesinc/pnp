@@ -37,30 +37,22 @@ class ApplicationInfoController
         return Inv.lookupOpener('person-warrant-info:open', [
             entity:entity, list: list, 
             saveHandler: {o-> 
-                    
                 def data = service.submitForRelease(entity); 
-                if (data) {
-                    entity.state = data.state;
-                    entity.verifiedbyname = data.verifiedbyname;
-                    entity.verifiedbytitle = data.verifiedbytitle;
-                    entity.verifiedbydepartment = data.verifiedbydepartment;
-                } 
+                if (data) entity.state = data.state;
                 binding.refresh(); 
             }
         ]); 
     } 
     
-    void release() {
-        if (!MsgBox.confirm('You are about to release this application. Continue?')) return;
-        
-        def data = service.release(entity); 
-        if (data) {
-            entity.state = data.state;
-            entity.certifiedbyname = data.certifiedbyname;
-            entity.certifiedbytitle = data.certifiedbytitle;
-            entity.certifiedbydepartment = data.certifiedbydepartment;
-        }         
-        
-        binding.refresh();
+    def release() {
+        //if (!MsgBox.confirm('You are about to release this application. Continue?')) return;
+        return Inv.lookupOpener('policeclearance:release', [
+            entity:entity,
+            saveHandler: { o->
+                def data = service.release(entity); 
+                if (data) entity.state = data.state;
+                binding.refresh(); 
+            }
+        ]);
     }     
 } 
