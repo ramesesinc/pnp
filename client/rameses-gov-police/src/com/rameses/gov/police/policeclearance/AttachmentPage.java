@@ -51,9 +51,8 @@ public class AttachmentPage extends javax.swing.JPanel
         xFormPanel1 = new com.rameses.rcp.control.XFormPanel();
         xTextField8 = new com.rameses.rcp.control.XTextField();
         xButton1 = new com.rameses.rcp.control.XButton();
-        xFormPanel2 = new com.rameses.rcp.control.XFormPanel();
-        xTextField9 = new com.rameses.rcp.control.XTextField();
-        xButton3 = new com.rameses.rcp.control.XButton();
+        xTextField10 = new com.rameses.rcp.control.XTextField();
+        xButton4 = new com.rameses.rcp.control.XButton();
         jPanel4 = new javax.swing.JPanel();
         formPanel5 = new com.rameses.rcp.util.FormPanel();
         xTextField1 = new com.rameses.rcp.control.XTextField();
@@ -167,8 +166,8 @@ public class AttachmentPage extends javax.swing.JPanel
                 .addContainerGap()
                 .add(formPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 457, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                .addContainerGap())
+                .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 161, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -186,7 +185,7 @@ public class AttachmentPage extends javax.swing.JPanel
         xTextField5.setCaption("Police Clearance No.");
         xTextField5.setCaptionWidth(120);
         xTextField5.setName("entity.docno");
-        xTextField5.setPreferredSize(new java.awt.Dimension(200, 20));
+        xTextField5.setPreferredSize(new java.awt.Dimension(165, 20));
         xTextField5.setRequired(true);
         formPanel4.add(xTextField5);
 
@@ -210,7 +209,7 @@ public class AttachmentPage extends javax.swing.JPanel
         xTextField8.setCaption("O.R.");
         xTextField8.setCaptionWidth(120);
         xTextField8.setName("entity.or.refno");
-        xTextField8.setPreferredSize(new java.awt.Dimension(200, 20));
+        xTextField8.setPreferredSize(new java.awt.Dimension(165, 20));
         xTextField8.setRequired(true);
         xFormPanel1.add(xTextField8);
 
@@ -223,24 +222,24 @@ public class AttachmentPage extends javax.swing.JPanel
         xButton1.setText("Attach");
         xFormPanel1.add(xButton1);
 
-        xFormPanel2.setOrientation(com.rameses.rcp.constant.UIConstants.HORIZONTAL);
-        xTextField9.setEditable(false);
-        xTextField9.setBackground(new java.awt.Color(245, 245, 245));
-        xTextField9.setCaption("CTC");
-        xTextField9.setCaptionWidth(120);
-        xTextField9.setName("entity.ctc.refno");
-        xTextField9.setPreferredSize(new java.awt.Dimension(200, 20));
-        xTextField9.setRequired(true);
-        xFormPanel2.add(xTextField9);
+        xTextField10.setEditable(false);
+        xTextField10.setBackground(new java.awt.Color(245, 245, 245));
+        xTextField10.setCaption("CTC");
+        xTextField10.setCaptionWidth(50);
+        xTextField10.setCellPadding(new java.awt.Insets(0, 15, 0, 0));
+        xTextField10.setName("entity.ctc.refno");
+        xTextField10.setPreferredSize(new java.awt.Dimension(165, 20));
+        xTextField10.setRequired(true);
+        xFormPanel1.add(xTextField10);
 
-        xButton3.setCaption("");
-        xButton3.setCaptionWidth(1);
-        xButton3.setImmediate(true);
-        xButton3.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        xButton3.setName("attachCTC");
-        xButton3.setPreferredSize(new java.awt.Dimension(50, 22));
-        xButton3.setText("Attach");
-        xFormPanel2.add(xButton3);
+        xButton4.setCaption("");
+        xButton4.setCaptionWidth(1);
+        xButton4.setImmediate(true);
+        xButton4.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        xButton4.setName("attachCTC");
+        xButton4.setPreferredSize(new java.awt.Dimension(50, 22));
+        xButton4.setText("Attach");
+        xFormPanel1.add(xButton4);
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -249,9 +248,8 @@ public class AttachmentPage extends javax.swing.JPanel
             .add(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, formPanel4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, xFormPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
-                    .add(xFormPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, formPanel4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, xFormPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -260,8 +258,6 @@ public class AttachmentPage extends javax.swing.JPanel
                 .add(formPanel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(1, 1, 1)
                 .add(xFormPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 22, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(xFormPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 22, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -327,7 +323,7 @@ public class AttachmentPage extends javax.swing.JPanel
         jLabel2.setBounds(180, 20, 120, 14);
 
         jPanel4.add(jPanel1);
-        jPanel1.setBounds(300, 10, 335, 150);
+        jPanel1.setBounds(300, 10, 340, 150);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
         this.setLayout(layout);
@@ -335,12 +331,11 @@ public class AttachmentPage extends javax.swing.JPanel
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                        .add(jPanel4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -351,7 +346,7 @@ public class AttachmentPage extends javax.swing.JPanel
                 .add(jPanel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 173, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     
@@ -368,9 +363,8 @@ public class AttachmentPage extends javax.swing.JPanel
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private com.rameses.rcp.control.XButton xButton1;
-    private com.rameses.rcp.control.XButton xButton3;
+    private com.rameses.rcp.control.XButton xButton4;
     private com.rameses.rcp.control.XFormPanel xFormPanel1;
-    private com.rameses.rcp.control.XFormPanel xFormPanel2;
     private com.rameses.rcp.control.XLabel xLabel10;
     private com.rameses.rcp.control.XLabel xLabel15;
     private com.rameses.rcp.control.XLabel xLabel18;
@@ -383,6 +377,7 @@ public class AttachmentPage extends javax.swing.JPanel
     private com.rameses.rcp.control.XPhoto xPhoto2;
     private com.rameses.rcp.control.XPhoto xPhoto3;
     private com.rameses.rcp.control.XTextField xTextField1;
+    private com.rameses.rcp.control.XTextField xTextField10;
     private com.rameses.rcp.control.XTextField xTextField2;
     private com.rameses.rcp.control.XTextField xTextField3;
     private com.rameses.rcp.control.XTextField xTextField4;
@@ -390,7 +385,6 @@ public class AttachmentPage extends javax.swing.JPanel
     private com.rameses.rcp.control.XTextField xTextField6;
     private com.rameses.rcp.control.XTextField xTextField7;
     private com.rameses.rcp.control.XTextField xTextField8;
-    private com.rameses.rcp.control.XTextField xTextField9;
     // End of variables declaration//GEN-END:variables
     
 }
