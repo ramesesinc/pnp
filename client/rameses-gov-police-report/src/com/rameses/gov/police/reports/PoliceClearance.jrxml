@@ -572,6 +572,32 @@
 					<graphicElement stretchType="NoStretch"/>
 					<imageExpression class="java.lang.String"><![CDATA[$F{person}?.source?.photo?.imageurl]]></imageExpression>
 				</image>
+				<staticText>
+					<reportElement
+						x="101"
+						y="337"
+						width="142"
+						height="11"
+						key="staticText-1"/>
+					<box></box>
+					<textElement>
+						<font fontName="Tahoma" size="8"/>
+					</textElement>
+				<text><![CDATA[Verified By:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="261"
+						y="337"
+						width="142"
+						height="11"
+						key="staticText-2"/>
+					<box></box>
+					<textElement>
+						<font fontName="Tahoma" size="8"/>
+					</textElement>
+				<text><![CDATA[Certified By:]]></text>
+				</staticText>
 			</band>
 		</title>
 		<pageHeader>

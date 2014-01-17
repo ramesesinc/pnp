@@ -37,10 +37,10 @@ class VerifyApplicationController
     }
     
     void getVerifiedByInfo( data ) {
-        entity.verifiedby = data.personnelid;
-        entity.verifiedbyname = data.name;
-        entity.verifiedbytitle = data.title;
-        entity.verifiedbydepartment = data.department;
+        entity.verifiedby = data?.personnelid;
+        entity.verifiedbyname = data?.name;
+        entity.verifiedbytitle = data?.title;
+        entity.verifiedbydepartment = data?.department;
     }
     
     List getVerifierList() {

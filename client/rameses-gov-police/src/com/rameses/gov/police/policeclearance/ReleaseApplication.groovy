@@ -36,10 +36,10 @@ class ReleaseApplicationController
     }
     
     void getCertifiedByInfo( data ) {
-        entity.certifiedby = data.personnelid;
-        entity.certifiedbyname = data.name;
-        entity.certifiedbytitle = data.title;
-        entity.certifiedbydepartment = data.department;
+        entity.certifiedby = data?.personnelid;
+        entity.certifiedbyname = data?.name;
+        entity.certifiedbytitle = data?.title;
+        entity.certifiedbydepartment = data?.department;
     }
     
     List getReleaserList() {
